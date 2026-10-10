@@ -55,7 +55,7 @@ Small, owner-operated studio: the person who answers the WhatsApp is the person 
 
 - 19 real photos of the owner's work (`C:\GSTV\midia-original`, not in the repo): black BMW X3 under the hex LED ceiling, pink BMW M3, blue BMW M2, grey Mercedes C-Class, black BMW 3 Series, wheel close-ups, steering wheels, M seat headrest, M2 grille badge.
 - Instagram reels/posts: pending the owner's login.
-- Solar film brand: **Window Blue** ("filme profissional" line; signal behavior unverified, do not claim).
+- Solar film brand: **Window Blue** (only the "filme profissional" line; owner confirmed it has no metal, so no phone/GPS interference).
 - **Absent, must not be fabricated:** testimonials, review counts, number of cars done, years in business, prices, PPF brand, market price comparisons.
 
 ## Product Principles
