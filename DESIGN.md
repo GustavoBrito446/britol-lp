@@ -28,7 +28,7 @@ Uma família só, **Archivo Variable** (servida pelo próprio site via `@fontsou
 
 - **Teto de LED** (`HexCeiling.astro`): SVG gerado em build com glow em `feGaussianBlur`; os tubos acendem com flicker escalonado. Aparece no hero (desktop, continuando o teto da foto) e no CTA final.
 - **Seletor de PPF** (`PpfPacotes.astro`): rádios nativos e `:has()`, sem JavaScript. Os pontos de luz acendem de forma cumulativa por pacote; no Full a foto inteira clareia. A moldura `.quadro` mantém a proporção 3:4, então os pontos (em %) nunca desalinham.
-- **Escala PS4–PS12**: barras de LED que acendem com `animation-timeline: view()` (sem suporte ao recurso, ficam acesas).
+- **Escala PS4–PS12**: barras de LED que acendem em sequência com GSAP ao entrar na tela (sem JS, ficam acesas).
 - **Recibo "na sua conta"**: `dl` com pontilhado entre o item e o valor em dourado.
 - **CTA** (`Cta.jsx`): SpecularButton do React Bits. Fundo transparente, raio de 18px e borda com reflexo branco em WebGL que segue o mouse; em telas de toque o reflexo gira sozinho. No botão fixo do celular, fundo escuro com desfoque.
 - **Galeria**: FlexCarousel do React Bits (preset `liquid`, intro `rise`), com fotos em WebP de 1200px. `captureWheel` desligado para não prender a rolagem da página.
