@@ -31,7 +31,7 @@ const galeria = [
 const conta = [
   ['Garantia por escrito no PPF', `${site.garantiaAnos} anos`],
   ['Parcelamento no cartão', `até ${site.parcelas}x*`],
-  ['Busca e entrega do carro', 'no PPF Full'],
+  ['Busca e entrega no PPF Full', 'grátis'],
   ['Acabamento do PPF', 'brilho ou fosco'],
   ['Quem te atende no WhatsApp', 'é quem instala'],
   ['Orçamento', 'sem compromisso'],
@@ -56,7 +56,7 @@ const faq = [
   },
   {
     q: 'Como funciona a busca e entrega?',
-    a: 'Ela vale para o PPF Full: a gente agenda a retirada do carro na sua casa por uma plataforma de transporte, faz o serviço no estúdio e devolve o carro pronto.',
+    a: 'Ela vale para o PPF Full: a gente agenda a retirada do carro na sua casa por uma plataforma de transporte, faz o serviço no estúdio e devolve o carro pronto. O transporte é por nossa conta.',
   },
   {
     q: 'Como pago?',
@@ -69,7 +69,7 @@ const setaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 
 <Base
   title="Britol Protection | PPF e películas automotivas em São Paulo"
-  description="PPF, película antivandalismo e películas nano carbon em São Paulo. Garantia de 10 anos por escrito no PPF, até 12x no cartão e busca e entrega no PPF Full. Orçamento pelo WhatsApp."
+  description="PPF, película antivandalismo e películas nano carbon em São Paulo. Garantia de 10 anos por escrito no PPF, até 12x no cartão e busca e entrega grátis no PPF Full. Orçamento pelo WhatsApp."
 >
   <header class="topo">
     <a class="marca" href="#inicio" aria-label="Britol Protection, início">
@@ -150,7 +150,7 @@ const setaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
       <div class="pel-tabela" role="table" aria-label="Comparativo entre filme profissional e nano carbon">
         <div class="pel-linha pel-topo" role="row">
           <span role="columnheader"><span class="visually-hidden">Característica</span></span>
-          <span role="columnheader">Filme profissional</span>
+          <span role="columnheader">Filme profissional <small>Window Blue</small></span>
           <span role="columnheader">Nano carbon</span>
         </div>
         <div class="pel-linha" role="row">
@@ -367,6 +367,7 @@ const setaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
   .pel-topo [role='columnheader'] { font-stretch: 125%; font-weight: 720; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem); }
   .pel-topo [role='columnheader']:first-child { display: none; }
   .pel-topo [role='columnheader']:last-child { color: var(--gold); }
+  .pel-topo small { display: block; font-size: 0.72em; font-weight: 500; color: var(--muted); }
   @media (min-width: 48rem) {
     .pel-linha { grid-template-columns: 10rem 1fr 1fr; }
     .pel-linha [role='rowheader'] { grid-column: auto; padding-top: 0.2em; }

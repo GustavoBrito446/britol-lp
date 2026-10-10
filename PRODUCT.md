@@ -41,9 +41,9 @@ Small, owner-operated studio: the person who answers the WhatsApp is the person 
 
 ## Capabilities and Constraints
 
-- **Warranty: 10 years, written.** Confirmed by the owner. Scope (PPF only, or every service) is OPEN; until confirmed, attach it to PPF.
+- **Warranty: 10 years, written.** Confirmed by the owner. Applies to PPF only (confirmed).
 - **Payment: up to 12x on credit card, subject to card-machine interest.** The interest disclaimer must be visible.
-- **Pickup and delivery: only for PPF Full.** A transport platform picks the car up at the client's home, takes it to the studio and brings it back.
+- **Pickup and delivery: only for PPF Full, free for the client (confirmed).** A transport platform picks the car up at the client's home, takes it to the studio and brings it back.
 - Do not promise "bulletproof", "anti-theft guaranteed" or legal outcomes. Window-film darkness must respect Brazilian traffic rules (Contran); state this, don't dodge it.
 
 ## Brand Commitments
@@ -55,7 +55,8 @@ Small, owner-operated studio: the person who answers the WhatsApp is the person 
 
 - 19 real photos of the owner's work (`C:\GSTV\midia-original`, not in the repo): black BMW X3 under the hex LED ceiling, pink BMW M3, blue BMW M2, grey Mercedes C-Class, black BMW 3 Series, wheel close-ups, steering wheels, M seat headrest, M2 grille badge.
 - Instagram reels/posts: pending the owner's login.
-- **Absent, must not be fabricated:** testimonials, review counts, number of cars done, years in business, prices, film brand names, market price comparisons.
+- Solar film brand: **Window Blue** ("filme profissional" line; signal behavior unverified, do not claim).
+- **Absent, must not be fabricated:** testimonials, review counts, number of cars done, years in business, prices, PPF brand, market price comparisons.
 
 ## Product Principles
 

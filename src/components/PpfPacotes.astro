@@ -22,8 +22,8 @@ const pacotes = [
   },
   {
     id: 'full', nome: 'PPF Full', nivel: 4,
-    resumo: 'O carro inteiro. Pintura original preservada de ponta a ponta, e a gente busca e devolve o carro na sua casa.',
-    itens: ['Carroceria completa', 'Busca e entrega do carro'],
+    resumo: 'O carro inteiro. Pintura original preservada de ponta a ponta, e a gente busca e devolve o carro na sua casa, sem custo.',
+    itens: ['Carroceria completa', 'Busca e entrega grátis'],
   },
 ];
 
@@ -84,7 +84,7 @@ const pontos = [
             )}
             {p.itens.map((item) => <li>{item}</li>)}
           </ul>
-          {p.id === 'full' && <p class="extra">Só no Full: a gente busca o carro na sua casa, leva ao estúdio e devolve pronto.</p>}
+          {p.id === 'full' && <p class="extra">Só no Full: a gente busca o carro na sua casa, leva ao estúdio e devolve pronto. Por nossa conta.</p>}
           <p class="garantia">Garantia de {site.garantiaAnos} anos por escrito · até {site.parcelas}x no cartão</p>
           <a class="btn" href={wa(`Olá! Quero um orçamento do ${p.nome} de PPF. Meu carro é: `)} target="_blank" rel="noopener">
             Orçar o {p.nome}
