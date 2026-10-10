@@ -30,11 +30,12 @@ Uma família só, **Archivo Variable** (servida pelo próprio site via `@fontsou
 - **Seletor de PPF** (`PpfPacotes.astro`): rádios nativos e `:has()`, sem JavaScript. Os pontos de luz acendem de forma cumulativa por pacote; no Full a foto inteira clareia. A moldura `.quadro` mantém a proporção 3:4, então os pontos (em %) nunca desalinham.
 - **Escala PS4–PS12**: barras de LED que acendem com `animation-timeline: view()` (sem suporte ao recurso, ficam acesas).
 - **Recibo "na sua conta"**: `dl` com pontilhado entre o item e o valor em dourado.
-- **Botão**: retângulo dourado com raio de 2px e seta em SVG. Nada de sombra decorativa.
+- **CTA** (`Cta.jsx`): SpecularButton do React Bits. Fundo transparente, raio de 18px e borda com reflexo branco em WebGL que segue o mouse; em telas de toque o reflexo gira sozinho. No botão fixo do celular, fundo escuro com desfoque.
+- **Galeria**: FlexCarousel do React Bits (preset `liquid`, intro `rise`), com fotos em WebP de 1200px. `captureWheel` desligado para não prender a rolagem da página.
 
 ## Movimento
 
-Um único momento autoral: a ignição do teto de LED. O resto é transição de estado (seletor, FAQ). Tudo respeita `prefers-reduced-motion`.
+Ignição do teto de LED na entrada. Ao rolar (GSAP + ScrollTrigger, `src/scripts/animacoes.js`): títulos e listas sobem com fade, as fotos têm parallax, a moldura do PPF se abre e as barras PS4–PS12 acendem em sequência. Tudo respeita `prefers-reduced-motion`.
 
 ## Proveniência das imagens
 

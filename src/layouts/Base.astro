@@ -110,24 +110,11 @@ const schema = {
 
   .lead { color: var(--muted); max-width: 38rem; font-size: 1.08em; }
 
-  /* Botão principal: o dourado só aparece onde há ação. */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75em;
-    min-height: 3.25rem;
-    padding: 0.9em 1.5em;
-    background: var(--gold);
-    color: var(--gold-ink);
-    font-weight: 680;
-    font-stretch: 112%;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: background 0.3s var(--ease), transform 0.3s var(--ease);
-  }
-  .btn:hover { background: var(--gold-hi); }
-  .btn:active { transform: translateY(1px); }
-  .btn svg { width: 1.2em; height: 1.2em; flex: none; }
+  /* CTA: SpecularButton do React Bits (src/components/Cta.jsx) */
+  .cta { font-stretch: 112%; font-weight: 620; }
+  .cta .specular-button__label { display: inline-flex; align-items: center; gap: 0.7em; }
+  .cta-seta { width: 1.1em; height: 1.1em; flex: none; }
+  @media (max-width: 26rem) { .cta.specular-button--lg { padding: 16px 26px; font-size: 1.05rem; } }
 
   .visually-hidden {
     position: absolute; width: 1px; height: 1px; overflow: hidden;

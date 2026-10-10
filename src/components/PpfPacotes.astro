@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import carro from '../assets/fotos/x3-tres-quartos.jpg';
 import { wa, site } from '../config/site';
+import Cta from './Cta.jsx';
 
 // Cada pacote inclui tudo do anterior: "nivel" é cumulativo.
 const pacotes = [
@@ -86,10 +87,7 @@ const pontos = [
           </ul>
           {p.id === 'full' && <p class="extra">Só no Full: a gente busca o carro na sua casa, leva ao estúdio e devolve pronto. Por nossa conta.</p>}
           <p class="garantia">Garantia de {site.garantiaAnos} anos por escrito · até {site.parcelas}x no cartão</p>
-          <a class="btn" href={wa(`Olá! Quero um orçamento do ${p.nome} de PPF. Meu carro é: `)} target="_blank" rel="noopener">
-            Orçar o {p.nome}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-          </a>
+          <div class="pacote-cta"><Cta client:visible href={wa(`Olá! Quero um orçamento do ${p.nome} de PPF. Meu carro é: `)} label={`Orçar o ${p.nome}`} /></div>
         </article>
       ))}
     </div>
@@ -211,5 +209,5 @@ const pontos = [
   .pacote li.herdado::before { content: '='; color: var(--muted); }
   .pacote .extra { color: var(--ink); }
   .pacote .garantia { font-size: 0.9rem; color: var(--muted); }
-  .pacote .btn { justify-self: start; margin-top: 0.5rem; }
+  .pacote-cta { justify-self: start; margin-top: 0.5rem; }
 </style>
