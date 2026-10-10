@@ -1,0 +1,463 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import HexCeiling from '../components/HexCeiling.astro';
+import PpfPacotes from '../components/PpfPacotes.astro';
+import { site, wa } from '../config/site';
+
+import x3Hero from '../assets/fotos/x3-frente.jpg';
+import x3Lateral from '../assets/fotos/x3-lateral.jpg';
+import x3Traseira from '../assets/fotos/x3-traseira.jpg';
+import m3 from '../assets/fotos/m3-rosa.jpg';
+import m2 from '../assets/fotos/m2-azul.jpg';
+import mercedes from '../assets/fotos/mercedes-c.jpg';
+import serie3 from '../assets/fotos/bmw-serie3.jpg';
+import roda from '../assets/fotos/roda-x3.jpg';
+import volante from '../assets/fotos/volante-m.jpg';
+import grade from '../assets/fotos/m2-grade.jpg';
+import encosto from '../assets/fotos/m2-encosto.jpg';
+
+const galeria = [
+  { src: m3, alt: 'BMW M3 rosa de frente, sob o teto de LED do estúdio', legenda: 'BMW M3' },
+  { src: mercedes, alt: 'Mercedes-Benz Classe C cinza no estúdio', legenda: 'Mercedes-Benz Classe C' },
+  { src: grade, alt: 'Detalhe do emblema M2 na grade dianteira', legenda: 'BMW M2, detalhe da grade' },
+  { src: m2, alt: 'BMW M2 azul em fundo claro', legenda: 'BMW M2' },
+  { src: roda, alt: 'Roda da BMW X3 com reflexo das luzes', legenda: 'BMW X3, roda' },
+  { src: serie3, alt: 'BMW Série 3 preta de frente', legenda: 'BMW Série 3' },
+  { src: volante, alt: 'Volante BMW M com detalhes em fibra de carbono', legenda: 'Interior BMW M' },
+  { src: encosto, alt: 'Encosto de banco de couro com o logo M2', legenda: 'BMW M2, interior' },
+];
+
+const conta = [
+  ['Garantia por escrito no PPF', `${site.garantiaAnos} anos`],
+  ['Parcelamento no cartão', `até ${site.parcelas}x*`],
+  ['Busca e entrega do carro', 'no PPF Full'],
+  ['Acabamento do PPF', 'brilho ou fosco'],
+  ['Quem te atende no WhatsApp', 'é quem instala'],
+  ['Orçamento', 'sem compromisso'],
+];
+
+const faq = [
+  {
+    q: 'O PPF fica aparente ou amarela com o tempo?',
+    a: `No acabamento brilho ele some na pintura; no fosco, ele muda o acabamento para acetinado de propósito. É um filme feito para ficar anos exposto ao sol, e é por isso que o PPF sai com garantia de ${site.garantiaAnos} anos por escrito.`,
+  },
+  {
+    q: 'Posso lavar o carro normalmente depois?',
+    a: 'Pode. Só existe um prazo curto de cura logo após a aplicação, que a gente passa certinho na entrega. Depois disso é lavagem normal.',
+  },
+  {
+    q: 'Quanto tempo o carro fica com vocês?',
+    a: 'Depende do pacote e do carro. Os kits são rápidos; o PPF Full exige mais tempo de estúdio. O prazo exato vem junto com o orçamento.',
+  },
+  {
+    q: 'Película nos vidros é permitida?',
+    a: 'É, dentro das regras do Contran para transparência do para-brisa e dos vidros dianteiros. A gente aplica respeitando esses limites para você não ter dor de cabeça em blitz ou vistoria.',
+  },
+  {
+    q: 'Como funciona a busca e entrega?',
+    a: 'Ela vale para o PPF Full: a gente agenda a retirada do carro na sua casa por uma plataforma de transporte, faz o serviço no estúdio e devolve o carro pronto.',
+  },
+  {
+    q: 'Como pago?',
+    a: `À vista ou em até ${site.parcelas}x no cartão. O parcelamento tem os juros da maquininha, e a gente mostra o valor de cada parcela antes de você fechar.`,
+  },
+];
+
+const setaSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+---
+
+<Base
+  title="Britol Protection | PPF e películas automotivas em São Paulo"
+  description="PPF, película antivandalismo e películas nano carbon em São Paulo. Garantia de 10 anos por escrito no PPF, até 12x no cartão e busca e entrega no PPF Full. Orçamento pelo WhatsApp."
+>
+  <header class="topo">
+    <a class="marca" href="#inicio" aria-label="Britol Protection, início">
+      <span class="bp">BP</span>
+      <span class="nome">Britol <span>Protection</span></span>
+    </a>
+    <a class="topo-wa" href={wa()} target="_blank" rel="noopener">WhatsApp {site.whatsappVisivel}</a>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <HexCeiling rows={3} class="hero-teto" />
+      <Image class="hero-foto" src={x3Hero} alt="BMW X3 preta de frente, faróis acesos, no estúdio da Britol Protection" widths={[480, 800, 1200, 1700]} sizes="(min-width: 64rem) 60vw, 100vw" loading="eager" fetchpriority="high" />
+      <div class="hero-texto">
+        <h1 id="hero-titulo">Seu carro sai daqui valendo mais.</h1>
+        <p>
+          PPF, película antivandalismo e películas nos vidros, aplicados à mão em {site.cidade}.
+          A proteção fica no carro: na pintura, no vidro e no preço de revenda.
+        </p>
+        <a class="btn" href={wa()} target="_blank" rel="noopener">Fazer orçamento no WhatsApp <Fragment set:html={setaSvg} /></a>
+        <p class="hero-selo">Garantia de {site.garantiaAnos} anos por escrito no PPF · até {site.parcelas}x no cartão</p>
+      </div>
+    </section>
+
+    <!-- A CONTA -->
+    <section class="conta-argumento wrap" aria-labelledby="argumento-titulo">
+      <h2 id="argumento-titulo">Quem protege, revende por cima.</h2>
+      <div class="argumento-texto">
+        <p>
+          A pedrinha na estrada. A porta do vizinho no estacionamento. A unha na maçaneta.
+          Cada marca vira retoque, cada retoque vira repintura, e repintura aparece na avaliação na hora de vender.
+        </p>
+        <p>
+          A película leva o golpe no lugar da pintura e do vidro. Você paga uma vez, o carro continua original,
+          e quem sai ganhando na revenda é você.
+        </p>
+      </div>
+      <dl class="troca">
+        <div><dt>Sem proteção</dt><dd>retoque, repintura, carro que perde valor a cada marca</dd></div>
+        <div><dt>Com a Britol</dt><dd>pintura original, vidro protegido, carro que revende inteiro</dd></div>
+      </dl>
+    </section>
+
+    <PpfPacotes />
+
+    <!-- ANTIVANDALISMO -->
+    <section class="vidros" id="antivandalismo" aria-labelledby="av-titulo">
+      <div class="vidros-foto">
+        <Image src={x3Lateral} alt="Lateral da BMW X3 preta com vidros escuros" widths={[600, 1000, 1400]} sizes="(min-width: 64rem) 45vw, 100vw" />
+      </div>
+      <div class="vidros-texto">
+        <h2 id="av-titulo">Antivandalismo: o vidro segura, você ganha tempo.</h2>
+        <p class="lead">
+          Uma película grossa e transparente que segura os estilhaços no lugar. Na pedrada ou na tentativa de
+          quebrar o vidro, ele trinca mas não se abre na hora, e quem está dentro do carro ganha os segundos que importam.
+        </p>
+        <div class="escala" role="img" aria-label="Escala de espessura da película antivandalismo, da PS4 à PS12">
+          <div class="escala-barras">
+            {Array.from({ length: 9 }, (_, i) => <span style={`--i:${i}`} />)}
+          </div>
+          <div class="escala-rotulos"><span>PS4</span><span>PS8</span><span>PS12</span></div>
+        </div>
+        <p>
+          Trabalhamos da <strong>PS4 à PS12</strong>. Quanto maior o número, mais espessa a película e mais
+          difícil atravessar o vidro. Pelo WhatsApp a gente indica a espessura certa para o seu uso e o seu carro.
+        </p>
+        <a class="btn" href={wa('Olá! Quero um orçamento de película antivandalismo. Meu carro é: ')} target="_blank" rel="noopener">Orçar antivandalismo <Fragment set:html={setaSvg} /></a>
+      </div>
+    </section>
+
+    <!-- PELÍCULAS -->
+    <section class="peliculas wrap" id="peliculas" aria-labelledby="pel-titulo">
+      <div class="pel-head">
+        <h2 id="pel-titulo">Película nos vidros: menos sol na pele, mais privacidade.</h2>
+        <p class="lead">Duas linhas, para dois objetivos. Você escolhe o tom; a gente aplica dentro das regras do Contran.</p>
+      </div>
+      <div class="pel-tabela" role="table" aria-label="Comparativo entre filme profissional e nano carbon">
+        <div class="pel-linha pel-topo" role="row">
+          <span role="columnheader"><span class="visually-hidden">Característica</span></span>
+          <span role="columnheader">Filme profissional</span>
+          <span role="columnheader">Nano carbon</span>
+        </div>
+        <div class="pel-linha" role="row">
+          <span role="rowheader">Para quem</span>
+          <span role="cell">Quer privacidade e menos ofuscamento com ótimo custo</span>
+          <span role="cell">Quer o máximo de conforto térmico e acabamento</span>
+        </div>
+        <div class="pel-linha" role="row">
+          <span role="rowheader">Calor</span>
+          <span role="cell">Reduz o calor que entra pelo vidro</span>
+          <span role="cell">Bloqueia mais calor: carro mais fresco no sol</span>
+        </div>
+        <div class="pel-linha" role="row">
+          <span role="rowheader">Sinal</span>
+          <span role="cell">Depende da linha: a gente indica a que não interfere</span>
+          <span role="cell">Sem metal na composição: celular, GPS e tag funcionando</span>
+        </div>
+        <div class="pel-linha" role="row">
+          <span role="rowheader">Cor</span>
+          <span role="cell">Tom escuro e uniforme</span>
+          <span role="cell">Cor estável, sem ficar arroxeada com os anos</span>
+        </div>
+      </div>
+      <div class="pel-ctas">
+        <a class="btn" href={wa('Olá! Quero um orçamento de película nano carbon. Meu carro é: ')} target="_blank" rel="noopener">Orçar nano carbon <Fragment set:html={setaSvg} /></a>
+        <a class="link" href={wa('Olá! Quero um orçamento de película (filme profissional). Meu carro é: ')} target="_blank" rel="noopener">Orçar filme profissional</a>
+      </div>
+    </section>
+
+    <!-- NA SUA CONTA -->
+    <section class="recibo" aria-labelledby="recibo-titulo">
+      <div class="wrap recibo-grid">
+        <div>
+          <h2 id="recibo-titulo">O que entra na sua conta.</h2>
+          <p class="lead">Além da proteção em si, isso tudo vai junto. Sem letra miúda, a não ser a do asterisco.</p>
+        </div>
+        <div class="recibo-lista">
+          <dl>
+            {conta.map(([item, valor]) => (
+              <div><dt>{item}</dt><dd>{valor}</dd></div>
+            ))}
+          </dl>
+          <p class="asterisco">* Parcelamento com os juros da maquininha do cartão.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="galeria" aria-labelledby="gal-titulo">
+      <div class="wrap gal-head">
+        <h2 id="gal-titulo">Carros que passaram por aqui.</h2>
+        <a class="link" href={site.instagram} target="_blank" rel="noopener">Ver mais no Instagram @britolprotection</a>
+      </div>
+      <ul class="gal-trilho" tabindex="0" aria-label="Galeria de carros atendidos, role para o lado">
+        {galeria.map((g, i) => (
+          <li>
+            <figure>
+              <Image src={g.src} alt={g.alt} widths={[400, 700]} sizes="(min-width: 64rem) 26vw, 75vw" />
+              <figcaption>{g.legenda}</figcaption>
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq wrap" aria-labelledby="faq-titulo">
+      <h2 id="faq-titulo">Perguntas que todo mundo faz.</h2>
+      <div class="faq-lista">
+        {faq.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final" aria-labelledby="final-titulo">
+      <HexCeiling rows={2} class="final-teto" />
+      <div class="wrap final-texto">
+        <h2 id="final-titulo">Manda o modelo do seu carro.</h2>
+        <p class="lead">A gente responde com o pacote que faz sentido e o valor, sem compromisso.</p>
+        <a class="btn" href={wa()} target="_blank" rel="noopener">Chamar no WhatsApp <Fragment set:html={setaSvg} /></a>
+      </div>
+      <Image class="final-foto" src={x3Traseira} alt="Traseira da BMW X3 preta com lanternas acesas" widths={[600, 1000]} sizes="(min-width: 64rem) 40vw, 100vw" />
+    </section>
+  </main>
+
+  <footer class="rodape wrap">
+    <p><strong>{site.nome}</strong> · Proteção veicular premium · {site.cidade}</p>
+    <p><a href={wa()} target="_blank" rel="noopener">{site.whatsappVisivel}</a> · <a href={site.instagram} target="_blank" rel="noopener">Instagram</a></p>
+  </footer>
+
+  <a class="wa-flutuante btn" href={wa()} target="_blank" rel="noopener">Orçamento no WhatsApp</a>
+</Base>
+
+<style>
+  /* TOPO */
+  .topo {
+    position: absolute; inset: 0 0 auto; z-index: 5;
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding: 1.1rem var(--gutter);
+  }
+  .marca { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; padding: 0.35rem 0.6rem 0.35rem 0.35rem; margin: -0.35rem; background: rgb(12 11 10 / 0.72); border-radius: 2px; }
+  .bp {
+    display: grid; place-items: center;
+    width: 2.4rem; height: 2.4rem;
+    border: 1px solid var(--gold); color: var(--gold);
+    font-weight: 700; font-stretch: 110%; font-size: 0.95rem; letter-spacing: -0.04em;
+  }
+  .marca .nome { font-stretch: 125%; font-weight: 720; letter-spacing: 0.02em; text-transform: uppercase; font-size: 0.95rem; line-height: 1.1; }
+  .marca .nome span { display: block; color: var(--gold); font-weight: 500; font-size: 0.62rem; letter-spacing: 0.32em; }
+  .topo-wa { font-size: 0.9rem; color: var(--ink); text-decoration-color: var(--gold); padding: 0.4rem 0.7rem; background: rgb(12 11 10 / 0.7); border-radius: 2px; }
+  @media (max-width: 30rem) { .topo-wa { display: none; } }
+
+  /* HERO */
+  /* Celular: foto em cima com o carro inteiro, texto logo abaixo. */
+  .hero { position: relative; overflow: hidden; isolation: isolate; }
+  .hero-foto {
+    position: relative; z-index: -2;
+    width: 100%; height: 58svh;
+    object-fit: cover; object-position: 50% 82%;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0 0 auto; height: 58svh; z-index: -1;
+    background: linear-gradient(to top, var(--bg) 0%, rgb(12 11 10 / 0) 35%);
+  }
+  .hero :global(.hero-teto) { display: none; }
+  .hero-texto {
+    position: relative; z-index: 1;
+    margin-top: -2.5rem;
+    padding: 0 var(--gutter) clamp(2.5rem, 7vh, 5rem);
+    display: grid; gap: 1.25rem; justify-items: start;
+    max-width: 46rem;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 1.4rem + 5.4vw, 6rem); font-weight: 780; }
+  .hero-texto > p:first-of-type { color: #cfcac2; max-width: 33rem; }
+  .hero-selo { font-size: 0.88rem; color: var(--muted); }
+
+  @media (min-width: 64rem) {
+    .hero { min-height: 100svh; display: grid; grid-template-columns: 1fr 1fr; align-items: end; }
+    .hero-foto { position: absolute; inset: 0 0 0 auto; width: 58%; height: 100%; object-position: 50% 70%;
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 30%);
+      mask-image: linear-gradient(to right, transparent, #000 30%); }
+    .hero::after { inset: 0; height: auto; background: linear-gradient(to top, var(--bg) 2%, rgb(12 11 10 / 0) 30%); }
+    /* o teto em SVG continua o teto da foto para a esquerda */
+    .hero :global(.hero-teto) { display: block; position: absolute; inset: 0 auto auto 0; width: 62%; z-index: 0; pointer-events: none; opacity: 0.9;
+      -webkit-mask-image: linear-gradient(to right, #000 55%, transparent);
+      mask-image: linear-gradient(to right, #000 55%, transparent); }
+    .hero-texto { margin-top: 0; grid-column: 1; padding-left: max(var(--gutter), (100vw - 76rem) / 2); padding-bottom: 12vh; }
+  }
+
+  /* ARGUMENTO */
+  .conta-argumento {
+    padding-block: var(--section);
+    display: grid; gap: clamp(1.5rem, 4vw, 3rem);
+  }
+  .conta-argumento h2 { max-width: 13ch; }
+  .argumento-texto { display: grid; gap: 1rem; max-width: 40rem; color: #cfcac2; font-size: 1.1em; }
+  .troca { margin: 0; display: grid; border-top: 1px solid var(--line); }
+  .troca div { display: grid; gap: 0.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+  .troca dt { font-stretch: 125%; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--muted); }
+  .troca div:last-child dt { color: var(--gold); }
+  .troca dd { margin: 0; font-size: clamp(1.15rem, 1rem + 0.8vw, 1.6rem); font-weight: 560; line-height: 1.3; }
+  .troca div:first-child dd { color: var(--muted); text-decoration: line-through; text-decoration-color: rgb(169 164 156 / 0.5); text-decoration-thickness: 1px; }
+  @media (min-width: 64rem) {
+    .conta-argumento { grid-template-columns: 1fr 1fr; align-items: start; }
+    .troca { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; column-gap: 4rem; }
+  }
+
+  /* ANTIVANDALISMO */
+  .vidros { display: grid; border-top: 1px solid var(--line); }
+  .vidros-foto img { width: 100%; height: 100%; max-height: 80svh; object-fit: cover; object-position: center 15%; }
+  .vidros-texto { display: grid; gap: 1.5rem; align-content: center; justify-items: start; padding: var(--section) var(--gutter); max-width: 44rem; }
+  .vidros-texto > p:not(.lead) { color: #cfcac2; }
+  .vidros-texto strong { color: var(--ink); font-weight: 680; }
+  @media (min-width: 64rem) {
+    .vidros { grid-template-columns: 0.9fr 1.1fr; }
+    .vidros-foto img { max-height: none; }
+  }
+
+  /* barras de LED: cada degrau da espessura acende quando a escala entra na tela */
+  .escala { width: 100%; max-width: 28rem; display: grid; gap: 0.5rem; }
+  .escala-barras { display: flex; align-items: end; gap: 0.35rem; height: 4.5rem; }
+  .escala-barras span {
+    flex: 1;
+    height: calc(30% + var(--i) * 8.75%);
+    background: var(--led);
+    border-radius: 1px;
+    box-shadow: 0 0 12px rgb(243 246 250 / 0.45);
+    opacity: calc(0.25 + var(--i) * 0.094);
+  }
+  .escala-rotulos { display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+  @supports (animation-timeline: view()) {
+    .escala-barras span {
+      animation: acende linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i) * 6%) entry calc(30% + var(--i) * 6%);
+    }
+    @keyframes acende { from { opacity: 0.06; box-shadow: none; } }
+  }
+
+  /* PELÍCULAS */
+  .peliculas { padding-block: var(--section); display: grid; gap: clamp(2rem, 5vw, 3.5rem); border-top: 1px solid var(--line); }
+  .pel-head { display: grid; gap: 1.25rem; }
+  .pel-head h2 { max-width: 18ch; }
+  .pel-linha { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+  .pel-linha [role='rowheader'] { grid-column: 1 / -1; font-size: 0.78rem; font-weight: 700; font-stretch: 125%; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .pel-linha [role='cell'] { line-height: 1.45; }
+  .pel-linha [role='cell']:last-child { color: var(--led); }
+  .pel-topo { border-bottom-color: var(--muted); }
+  .pel-topo [role='columnheader'] { font-stretch: 125%; font-weight: 720; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.3rem); }
+  .pel-topo [role='columnheader']:first-child { display: none; }
+  .pel-topo [role='columnheader']:last-child { color: var(--gold); }
+  @media (min-width: 48rem) {
+    .pel-linha { grid-template-columns: 10rem 1fr 1fr; }
+    .pel-linha [role='rowheader'] { grid-column: auto; padding-top: 0.2em; }
+    .pel-topo [role='columnheader']:first-child { display: block; }
+  }
+  .pel-ctas { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+  .link { color: var(--ink); text-decoration-color: var(--gold); font-weight: 560; }
+  .link:hover { color: var(--gold-hi); }
+
+  /* RECIBO */
+  .recibo { background: var(--bg-raise); padding-block: var(--section); border-block: 1px solid var(--line); }
+  .recibo-grid { display: grid; gap: 2.5rem; }
+  .recibo-grid h2 { max-width: 12ch; margin-bottom: 1.25rem; }
+  .recibo-lista dl { margin: 0; }
+  .recibo-lista div { display: flex; align-items: baseline; gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .recibo-lista dt { color: #cfcac2; }
+  /* pontilhado entre item e valor, como numa nota */
+  .recibo-lista div::after { content: ''; order: 1; flex: 1; border-bottom: 1px dotted #57514a; translate: 0 -0.3em; min-width: 1.5rem; }
+  .recibo-lista dd { order: 2; margin: 0; font-weight: 700; font-stretch: 112%; color: var(--gold); text-align: right; white-space: nowrap; }
+  .asterisco { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); }
+  @media (min-width: 64rem) { .recibo-grid { grid-template-columns: 0.8fr 1.2fr; gap: 5rem; } }
+  @media (max-width: 26rem) {
+    .recibo-lista div { flex-wrap: wrap; gap: 0.15rem 0.75rem; }
+    .recibo-lista div::after { display: none; }
+    .recibo-lista dd { flex-basis: 100%; text-align: left; }
+  }
+
+  /* GALERIA */
+  .galeria { padding-block: var(--section); }
+  .gal-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 2rem; margin-bottom: 2rem; }
+  .gal-trilho {
+    list-style: none; margin: 0;
+    display: grid; grid-auto-flow: column; grid-auto-columns: min(75vw, 22rem);
+    gap: 1rem;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding: 0 var(--gutter) 1rem;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: thin;
+  }
+  @media (min-width: 76rem) { .gal-trilho { padding-inline: calc((100vw - 76rem) / 2); scroll-padding-inline: calc((100vw - 76rem) / 2); } }
+  .gal-trilho li { scroll-snap-align: start; }
+  .gal-trilho figure { margin: 0; display: grid; gap: 0.6rem; }
+  .gal-trilho img { aspect-ratio: 3 / 4; width: 100%; object-fit: cover; }
+  .gal-trilho figcaption { font-size: 0.88rem; color: var(--muted); }
+
+  /* FAQ */
+  .faq { padding-block: var(--section); display: grid; gap: 2.5rem; border-top: 1px solid var(--line); }
+  .faq h2 { max-width: 14ch; }
+  .faq-lista { border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer; list-style: none;
+    display: flex; justify-content: space-between; gap: 1.5rem;
+    padding: 1.3rem 0;
+    font-weight: 620; font-size: 1.05em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; color: var(--gold); font-weight: 400; font-size: 1.4em; line-height: 1; transition: rotate 0.3s var(--ease); }
+  details[open] summary::after { rotate: 45deg; }
+  summary:hover { color: var(--gold-hi); }
+  details p { padding-bottom: 1.4rem; color: #cfcac2; max-width: 44rem; }
+  @media (min-width: 64rem) { .faq { grid-template-columns: 0.8fr 1.2fr; gap: 5rem; } }
+
+  /* FINAL */
+  .final { position: relative; overflow: hidden; display: grid; border-top: 1px solid var(--line); isolation: isolate; }
+  .final :global(.final-teto) { position: absolute; inset: 0 0 auto; z-index: -1; opacity: 0.55; }
+  .final-texto { display: grid; gap: 1.25rem; justify-items: start; padding-block: clamp(9rem, 20vw, 14rem) var(--section); }
+  .final-texto h2 { font-size: clamp(2.4rem, 1.4rem + 4.5vw, 5.2rem); max-width: 12ch; }
+  .final-foto { width: 100%; max-height: 60svh; object-fit: cover; object-position: center 40%; }
+  @media (min-width: 64rem) {
+    .final { grid-template-columns: 1.2fr 0.8fr; align-items: end; }
+    .final-texto { width: auto; margin: 0; padding-left: max(var(--gutter), (100vw - 76rem) / 2); padding-right: 2rem; }
+    .final-foto { max-height: 46rem; height: 100%; }
+  }
+
+  /* RODAPÉ */
+  .rodape { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; padding-block: 2.5rem 6rem; font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--line); }
+  .rodape strong { color: var(--ink); font-weight: 650; }
+  @media (min-width: 48rem) { .rodape { padding-bottom: 2.5rem; } }
+
+  /* botão fixo só no celular, onde o topo some ao rolar */
+  .wa-flutuante {
+    position: fixed; z-index: 10;
+    left: 1rem; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom));
+    justify-content: center;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
+  }
+  @media (min-width: 48rem) { .wa-flutuante { display: none; } }
+  @supports (animation-timeline: scroll()) {
+    .wa-flutuante { animation: aparece linear both; animation-timeline: scroll(root); animation-range: 0 90svh; }
+    @keyframes aparece { 0%, 70% { opacity: 0; translate: 0 150%; visibility: hidden; } 100% { opacity: 1; translate: 0 0; visibility: visible; } }
+  }
+</style>
