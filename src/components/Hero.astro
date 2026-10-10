@@ -1,0 +1,79 @@
+---
+import '../styles/tailwind.css';
+import { Image } from 'astro:assets';
+import HexCeiling from './HexCeiling.astro';
+import { site, wa } from '../config/site';
+import { icones } from '../config/icones';
+import x3Hero from '../assets/fotos/x3-frente.jpg';
+---
+
+<header class="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 px-4 py-4 sm:px-8 lg:px-12">
+  <a href="#inicio" aria-label="Britol Protection, início" class="flex items-center gap-2.5 rounded-sm bg-[#0c0b0a]/70 py-1.5 pl-1.5 pr-3 no-underline">
+    <span class="grid size-9 place-items-center border border-[#c9a65f] text-[0.85rem] font-bold tracking-tighter text-[#c9a65f]">BP</span>
+    <span class="text-[0.85rem] font-bold uppercase leading-tight tracking-wide text-[#c9a65f] [font-stretch:120%]">
+      Britol<span class="block text-[0.58rem] font-medium tracking-[0.3em]">Protection</span>
+    </span>
+  </a>
+
+  <nav aria-label="Redes sociais" class="flex items-center gap-2">
+    <a href={wa()} target="_blank" rel="noopener" aria-label={`WhatsApp ${site.whatsappVisivel}`}
+      class="grid size-10 place-items-center rounded-full bg-[#0c0b0a]/60 text-white/80 ring-1 ring-white/20 transition hover:text-[#25d366] hover:ring-[#25d366]/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+      <svg viewBox="0 0 24 24" class="size-[1.15rem]" aria-hidden="true"><path fill="currentColor" d={icones.whatsapp} /></svg>
+    </a>
+    <a href={site.instagram} target="_blank" rel="noopener" aria-label="Instagram @britolprotection"
+      class="grid size-10 place-items-center rounded-full bg-[#0c0b0a]/60 text-white/80 ring-1 ring-white/20 transition hover:text-white hover:ring-white/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+      <svg viewBox="0 0 24 24" class="size-[1.15rem]" aria-hidden="true"><path fill="currentColor" d={icones.instagram} /></svg>
+    </a>
+  </nav>
+</header>
+
+<section class="hero relative isolate overflow-hidden bg-[#0c0b0a] lg:grid lg:min-h-svh lg:grid-cols-2 lg:items-center" aria-labelledby="hero-titulo">
+  <!-- Teto de LED: continua o teto da foto para a esquerda (desktop) -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 z-0 hidden w-[62%] opacity-90 lg:block [mask-image:linear-gradient(to_right,#000_55%,transparent)]">
+    <HexCeiling rows={3} />
+  </div>
+
+  <Image
+    src={x3Hero}
+    alt="BMW X3 preta de frente, faróis acesos, sob o teto de LED hexagonal do estúdio da Britol Protection"
+    widths={[480, 800, 1200, 1700]}
+    sizes="(min-width: 64rem) 58vw, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="hero-foto relative -z-10 h-[56svh] w-full object-cover object-[50%_82%] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[58%] lg:object-[50%_70%]"
+  />
+  <!-- Degradê para o texto do celular nascer em cima do chão escuro -->
+  <div class="pointer-events-none absolute inset-x-0 top-0 -z-[5] h-[56svh] bg-gradient-to-t from-[#0c0b0a] to-transparent to-40% lg:hidden"></div>
+
+  <div class="hero-texto relative z-10 -mt-10 flex max-w-2xl flex-col items-start gap-6 px-4 pb-14 sm:px-8 lg:col-start-1 lg:mt-0 lg:py-32 lg:pl-12 xl:pl-[max(3rem,calc((100vw-76rem)/2))]">
+    <h1 id="hero-titulo" class="m-0 text-4xl font-extrabold uppercase leading-[1.02] tracking-tight text-white [font-stretch:100%] [text-wrap:balance] sm:text-5xl xl:text-6xl">
+      Seu carro sai daqui valendo mais.
+    </h1>
+
+    <p class="m-0 max-w-xl text-lg font-normal leading-relaxed text-gray-200 sm:text-xl">
+      Proteção de Pintura (PPF), Película Antivandalismo, Películas de Alta Performance para vidros.
+      Proteção e valorização garantidas em São Paulo - SP. O melhor em estética e cuidado automotivo.
+    </p>
+
+    <div class="hero-cta flex flex-col items-start gap-4">
+      <a href={wa()} target="_blank" rel="noopener"
+        class="inline-flex min-h-12 items-center gap-3 rounded-lg bg-gray-800 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white no-underline shadow-lg shadow-black/40 ring-1 ring-white/10 transition hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-base">
+        <svg viewBox="0 0 24 24" class="size-5 shrink-0 text-[#25d366]" aria-hidden="true"><path fill="currentColor" d={icones.whatsapp} /></svg>
+        Fazer orçamento no WhatsApp
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="size-5 shrink-0" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+      <a href="#ppf" class="inline-flex items-center gap-2 py-1 text-base font-semibold text-gray-200 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white">
+        Ver serviços de proteção <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <p class="m-0 text-sm text-gray-300 sm:text-base">Garantia de até {site.garantiaAnos} anos em PPF. Atendimento em São Paulo.</p>
+  </div>
+</section>
+
+<style>
+  /* desktop: a borda esquerda da foto se funde no fundo escuro, deixando o carro nítido à direita */
+  @media (min-width: 64rem) {
+    :global(.hero-foto) { -webkit-mask-image: linear-gradient(to right, transparent, #000 30%) ; mask-image: linear-gradient(to right, transparent, #000 30%); }
+  }
+</style>

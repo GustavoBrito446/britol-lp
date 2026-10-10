@@ -19,7 +19,7 @@ Landing page de vendas da **Britol Protection**, estúdio de proteção automoti
 | React só em "ilhas" (`@astrojs/react`) | Os componentes do React Bits (botão e carrossel) são React; o resto da página continua HTML puro. |
 | SpecularButton + FlexCarousel (React Bits, WebGL via `ogl`) | CTA com brilho que segue o mouse e galeria em carrossel com curva "liquid". |
 | GSAP + ScrollTrigger | Animações conforme o scroll; desligadas para quem ativa "reduzir movimento". |
-| CSS próprio, sem Tailwind | Página única com sistema visual próprio; menos dependência. |
+| CSS próprio + Tailwind só no hero | O hero (`Hero.astro`) usa Tailwind 4 sem o reset global; o resto do site mantém o CSS próprio. |
 | `astro:assets` (`<Image>`) | Gera WebP em vários tamanhos com `srcset`: fotos de ~400 KB viram 20–110 KB. |
 | Fonte servida pelo próprio site (`@fontsource-variable/archivo`) | Sem requisição para o Google Fonts (privacidade/LGPD e performance). |
 | Seletor de PPF com rádio + `:has()` | Acessível por teclado nativamente e funciona sem JS. |
@@ -31,6 +31,7 @@ Landing page de vendas da **Britol Protection**, estúdio de proteção automoti
 src/
   config/site.ts            # WhatsApp, garantia, parcelas: edite aqui
   layouts/Base.astro        # <head>, SEO, dados estruturados, tokens de cor e tipografia
+  components/Hero.astro     # hero + topo (Tailwind)
   components/HexCeiling.astro  # teto de LED em SVG
   components/PpfPacotes.astro  # seletor interativo de pacotes de PPF
   components/Cta.jsx        # padrão de CTA (SpecularButton configurado)
@@ -41,6 +42,11 @@ src/
 .github/workflows/deploy.yml   # build e publicação no GitHub Pages
 PRODUCT.md / DESIGN.md      # verdade do produto e sistema visual
 ```
+
+## Testes de interface
+
+- `agent-browser` para prints e conferência visual (desktop e `set device "iPhone 14"`).
+- Playwright para fluxos, performance e console.
 
 ## Rodar localmente
 

@@ -12,7 +12,7 @@ mm.add('(prefers-reduced-motion: no-preference)', () => {
   const ease = 'expo.out';
 
   // Hero: o texto sobe em sequência e a foto "assenta" com um leve zoom-out.
-  gsap.from('.hero-texto > :is(h1, p, .hero-cta)', { y: 32, opacity: 0, duration: 1.2, ease, stagger: 0.09, delay: 0.25 });
+  gsap.from('.hero-texto > *', { y: 32, opacity: 0, duration: 1.2, ease, stagger: 0.09, delay: 0.25 });
   gsap.from('.hero-foto', { scale: 1.08, duration: 2.2, ease: 'power3.out' });
   // Ao rolar, a foto desce mais devagar que a página (parallax).
   gsap.to('.hero-foto', {

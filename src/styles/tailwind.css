@@ -1,0 +1,9 @@
+/* Tailwind v4 só para o hero: sem o preflight (reset global) e sem @layer.
+   Fora de layer, as classes do Tailwind vencem os seletores de tag do Base.astro (h1, p, a). */
+@import 'tailwindcss/theme.css';
+@import 'tailwindcss/utilities.css' source(none);
+@source '../components/Hero.astro';
+
+@theme {
+  --font-sans: 'Archivo Variable', system-ui, sans-serif;
+}
